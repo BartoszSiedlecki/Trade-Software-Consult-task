@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js" defer></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css">
     <title>Zadanie Rekrutacyjne TSC</title>
 </head>
 <body>
     <div class="container">
+        <div class="first-task" >
+            <p id="first-task-btn">see the first task here</p>
+            <button type="button" id="close-first-task">X</button>
+        </div>
         <nav class="nav-bar">
             <div class="logo">
-                <p>LOGO</p>
+                <p>logo</p>
             </div>
-            <ul class="menu">
+            <ul class="menu" id="mobile-menu">
+                <li class="mobile-exit" id="mobile-menu-exit">X</li>
                 <li class="option"><a href="#">Startseite</a></li>
                 <li class="option"><a class="current" href="#">Über uns</a></li>
                 <li class="option"><a href="#">Kontakt</a></li>
             </ul>
-            <div class="mobile-menu">
+            <div class="mobile-menu" id="mobile-menu-btn">
                 <div class="line"></div>
                 <div class="line short"></div>
                 <div class="line"></div>
@@ -79,21 +85,40 @@
         </main>    
             <section class="images">
                 <div class="gallery-slider">
-                    <button class="go left">&lt;</button>
-                    <div class="gallery">
-                        <div class="gallery-image"><img src="https://source.unsplash.com/300x500?company" alt="company-picture"></div>
-                        <div class="gallery-image wide"><img src="https://source.unsplash.com/1000x500?business" alt="company-picture"></div>
-                        <div class="gallery-image one"><img src="https://source.unsplash.com/300x500?institution" alt="company-picture"></div>
-                        <div class="gallery-image"><img src="https://source.unsplash.com/300x500?office" alt="company-picture"></div>
-                        <div class="gallery-image"><img src="https://source.unsplash.com/300x500?corporation" alt="company-picture"></div>
-                        <div class="gallery-image wide"><img src="https://source.unsplash.com/1000x500?agency" alt="company-picture"></div>
+                    <button class="go left" id="gallery-left-btn">&lt;</button>
+                    <div class="gallery first-page" name="gallery-page">
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x600?company" alt="company-picture"></div>
+                        <div class="gallery-image wide" name="gallery-img"><img src="https://source.unsplash.com/1000x500?business" alt="company-picture"></div>
+                        <div class="gallery-image one" name="gallery-img"><img src="https://source.unsplash.com/500x600?institution" alt="company-picture"></div>
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x600?office" alt="company-picture"></div>
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x600?corporation" alt="company-picture"></div>
+                        <div class="gallery-image wide" name="gallery-img"><img src="https://source.unsplash.com/1000x500?agency" alt="company-picture"></div>
                     </div>
-                    <button class="go right">&gt;</button>
+                    <div class="gallery second-page" name="gallery-page">
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x601?company" alt="company-picture"></div>
+                        <div class="gallery-image wide" name="gallery-img"><img src="https://source.unsplash.com/1000x501?business" alt="company-picture"></div>
+                        <div class="gallery-image one" name="gallery-img"><img src="https://source.unsplash.com/500x601?institution" alt="company-picture"></div>
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x601?office" alt="company-picture"></div>
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x601?corporation" alt="company-picture"></div>
+                        <div class="gallery-image wide" name="gallery-img"><img src="https://source.unsplash.com/1000x501?agency" alt="company-picture"></div>
+                    </div>
+                    <div class="gallery third-page" name="gallery-page">
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x602?company" alt="company-picture"></div>
+                        <div class="gallery-image wide" name="gallery-img"><img src="https://source.unsplash.com/1000x502?business" alt="company-picture"></div>
+                        <div class="gallery-image one" name="gallery-img"><img src="https://source.unsplash.com/500x602?institution" alt="company-picture"></div>
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x602?office" alt="company-picture"></div>
+                        <div class="gallery-image" name="gallery-img"><img src="https://source.unsplash.com/500x602?corporation" alt="company-picture"></div>
+                        <div class="gallery-image wide" name="gallery-img"><img src="https://source.unsplash.com/1000x502?agency" alt="company-picture"></div>
+                    </div>
+                    <button class="go right" id="gallery-right-btn">&gt;</button>
+                </div>
+                <div class="lightbox" id="lightbox">
+                    <img src="" alt="company-picture">
                 </div>
                 <div class="pagination">
-                    <button class="option"></button>
-                    <button class="option active"></button>
-                    <button class="option"></button>
+                    <button type="button" class="option active" data-value="1"></button>
+                    <button type="button" class="option" data-value="2"></button>
+                    <button type="button" class="option" data-value="3"></button>
                 </div>
             </section>
         
