@@ -14,45 +14,58 @@ html{
     overflow-x: hidden;
 }
 
-.first-task{
+.open-first-task{
+    display: flex;
     position: absolute;
-    z-index: 10;
     top: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    font-size: 1.5rem;
-    padding: .2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    display: none;
-
+    
     button{
         font-size: 1.5rem;
+    }
+}
+
+.first-task{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 1.3rem;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    .close-first-task{
+        position: absolute;
+        z-index: 100000;
+        top: 2rem;
+        right: 2rem;
+        color: white;
         background: none;
         border: none;
-        color: white;
+        font-size: 2rem;
         cursor: pointer;
     }
 
-    .button-active{
-        position: absolute;
-        font-size: 2rem;
-        top: 2rem;
-        right: 2rem;
+    .pagination{
+        display: flex;
+        font-size: 3rem;
+
+        button{
+            background: none;
+            border: none;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
     }
 }
 
-.task-active{
-    padding: 1rem;
-    padding-left: 3rem;
-    width: 100vw;
-    font-size: 1.4rem;
-    font-weight: 100;
-    cursor: default;
-}
+
 
 .nav-bar{
     display: flex;

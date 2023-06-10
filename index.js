@@ -88,31 +88,81 @@ function changePage(){
 }
 
 //first task
-const firstTask = document.getElementById("first-task-btn");
+const firstTaskBtn = document.getElementById("first-task-btn");
 const closeFirstTask = document.getElementById("close-first-task");
+const cancelFirstTask = document.getElementById("cancel-first-task");
+const firstTask = document.getElementById("first-task");
+const firstTaskLeft = document.getElementById("first-task-left");
+const firstTaskRight = document.getElementById("first-task-right");
+const firstTaskData = document.getElementById("first-task-data");
+const taskPageNumber = document.getElementById("task-page-number");
 
 fetch("https://jsonplaceholder.typicode.com/posts")
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        const displayData = data.slice(0, 10);
+        let page = 1;
+        let max = 10;
 
-        firstTask.addEventListener("click", () =>{
-            firstTask.classList.add("task-active");
-            closeFirstTask.classList.add("button-active");
-
-            displayData.forEach(element => {
-                firstTask.innerHTML += "userId: " + element.userId + ",<br>"
-                firstTask.innerHTML += "id: " + element.id + ",<br>"
-                firstTask.innerHTML += "title: " + element.title + ", <br>"
-                firstTask.innerHTML += "body: " + element.body + " <br><br>"
-            });
+        const sortedData = data.sort((a, b) => {
+            if(a.title < b.title){
+                return -1;
+            } else if(a.title > b.title){
+                return 1;
+            } else{
+                return 0;
+            }
         })
+
+        changeDataPage();
+
+        firstTask.addEventListener("click", e => {
+            if (e.target.id === "close-first-task") {
+                firstTask.style.display = "none";
+            }
+            if (e.target.id === "first-task-left") {
+                page--;
+                if(page<=0){
+                    page = 1;
+                }
+                changeDataPage();
+                
+            }
+            if (e.target.id === "first-task-right") {
+                page++;
+                if(page>10){
+                    page = 10;
+                }  
+                changeDataPage();
+            }
+        })
+
+        function changeDataPage(){
+            taskPageNumber.innerHTML = page;
+            max = 10 * page;
+            const displayData = sortedData.slice(max-10, max);
+
+            firstTaskData.innerHTML = "";
+            displayData.forEach(element => {
+                firstTaskData.innerHTML += "userId: " + element.userId + ",<br>"
+                firstTaskData.innerHTML += "id: " + element.id + ",<br>"
+                firstTaskData.innerHTML += "title: " + element.title + ", <br>"
+                firstTaskData.innerHTML += "body: " + element.body + " <br><br>"
+            })
+        }
+        
     })
     .catch(error => {
         console.log(error)
     })
 
-closeFirstTask.addEventListener("click", () =>{
-    firstTask.parentElement.style.display = "none"
+
+cancelFirstTask.addEventListener("click", () =>{
+    cancelFirstTask.parentElement.style.display = "none";
 })
+
+firstTaskBtn.addEventListener("click", () =>{
+    firstTask.style.display = "flex";
+    cancelFirstTask.parentElement.style.display = "none";
+})
+
+    

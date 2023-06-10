@@ -11,9 +11,18 @@
 </head>
 <body>
     <div class="container">
-        <div class="first-task" >
-            <p id="first-task-btn">see the first task here</p>
-            <button type="button" id="close-first-task">X</button>
+        <div class="open-first-task">
+            <button class="first-task-btn" id="first-task-btn">see the first task here</button>
+            <button class="close-first-task" id="cancel-first-task">X</button>
+        </div>
+        <div class="first-task" id="first-task">
+            <button class="close-first-task" id="close-first-task">X</button>
+            <p id="first-task-data"></p>
+            <div class="pagination">
+                <button class="goLeft" id="first-task-left">&lt;</button>
+                <p>--<span id="task-page-number">1</span>--</p>
+                <button class="goLeft" id="first-task-right">&gt;</button>
+            </div>
         </div>
         <nav class="nav-bar">
             <div class="logo">
