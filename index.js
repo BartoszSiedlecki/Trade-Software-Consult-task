@@ -102,6 +102,8 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     .then(data => {
         let page = 1;
         let max = 10;
+        localStorage.setItem("userData", JSON.stringify(data));
+        console.log(JSON.parse(localStorage.userData));
 
         const sortedData = data.sort((a, b) => {
             if(a.title < b.title){
